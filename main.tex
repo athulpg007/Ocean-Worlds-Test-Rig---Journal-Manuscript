@@ -3,6 +3,11 @@
 \usepackage{graphicx}
 \usepackage{apalike}
 \usepackage{setspace}
+\usepackage{bibentry}
+\usepackage{tablefootnote}
+\usepackage{hyperref}
+\usepackage[para,online,flushleft]{threeparttable}
+
 
 %% Uncomment line below for double spacing
 %\doublespacing
@@ -96,17 +101,48 @@ While the majority of the existing literature in the field of planetary rovers f
 
 
 
-\section{A Brief Survey of Existing Planetary Rover Test Rigs}
+\section{Existing Single Wheel Test Rigs for Planetary Rovers}
+
+Understanding wheel-terrain interaction requires a combination of numerical models, theoretical methods, and experimental techniques. The single wheel test rig is an important element within the larger set of experimental techniques, and is often required to validate the terramechanics models as well as provide empirical relationships for use in these models. Numerous single-wheel test rigs have been developed by universities and other institutes to characterize wheel-terrain interaction in support of planetary missions. This section provides a brief overview of a selected set of existing single-wheel test rigs and their capabilities.
+
+Figure \ref{fig:existing-test-rigs}(a) shows the Massachusetts Institute of Technology (MIT) single wheel test rig used in support of the Curiosity rover operations on the Martian surface. The test rig allows control of the wheel slip ratio and the vertical load and measures the traction force, driving torque, and wheel sinkage in Mars simulant soil \cite{senatore2014modeling}. Figure \ref{fig:existing-test-rigs}(b) shows the Carnegie Mellon University (CMU) single wheel soil imaging test bed also used in support of the Curiosity rover. The CMU test rig provide a unique imaging and analysis capability of soil motion at and below the wheel-soil interface \cite{moreland2012soil}. Figure \ref{fig:existing-test-rigs}(c) shows the Rover Chassis Evaluation Tool (RCET) single wheel test rig built at the German Aerospace Center (DLR) in support of the ExoMars rover project \cite{gallina2014parameter}.  Figure \ref{fig:existing-test-rigs}(d) shows the single wheel test bed at Tohuku University designed to support Japanese lunar exploration missions. In addition to the vertical load and slip ratio, the test rig allows control of the slip angle for the experiments \cite{ishigami2008terramechanics}. Figure \ref{fig:existing-test-rigs}(e) shows the single wheel test rig at Politecnico di Torino built in support of the AMALIA lunar rover mission \cite{della2010amalia}, and features slip and camber angle control during the test \cite{genta2016testing}. Figure \ref{fig:existing-test-rigs}(f) shows the wheel-soil interaction test bed at Harbin Institute of Technology in support of lunar exploration programs. Table summarizes the key characteristics and test capabilities of the various single wheel test rigs described in this section, and are compared to the proposed Purdue single wheel test rig for Ocean World rovers. More extensive reviews of both computational and experimental techniques for planetary wheel-soil interaction  are presented by in numerous review articles in the literature \cite{ding2011planetary,schafer2010planetary,sreenivasulu2014terramechanics}.
+
+
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=6.5in]{images/existing-test-rigs.pdf}
-\caption{Write caption here.}
+\caption{Existing single-wheel test rigs at various academic and research institutions. (a) MIT Single Wheel Test Rig \cite{senatore2014modeling}; (b) CMU Single Wheel Soil Imaging Testbed \cite{moreland2012soil}; (c) ESA ExoMars Project Single Wheel Test Rig \cite{gallina2014parameter}; (d) Tohuku University Single Wheel Test Bed \cite{ishigami2008terramechanics}; (e) Politecnico di Torino Single Wheel Test Rig \cite{genta2016testing}; (f) Harbin Institute of Technology (HIT) Wheel-Soil Interaction Test Bed \cite{ding2013experimental}}
 \label{fig:existing-test-rigs}
 \end{figure}
 
+\begin{table}[htpb!]
+\caption{Summary of key characteristics and capabilities of the various single wheel test rigs}
+\label{tab:existing-test-rigs}
+\begin{threeparttable}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \hline
+% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+   & Length, & Linear & Tire &  Slip ratio & Slip angle & Camber angle \\
+   & m &speed, mm/s & diameter, cm &  control & control & control \\
+  \hline\hline
+  MIT & 3.5 & 60 & 50 & Yes & No & No \\ \hline
+  CMU  & 1.0\tnote{{a}} & 1.0 & 50 & Yes & No & No\\ \hline
+  ESA RCET & 3.0\tnote{{a}} & n/a\tnote{{b}} & 25 & Yes & n/a\tnote{{b}} & n/a\tnote{{b}}\\ \hline
+  Tohuku University & 2.0 & 35 & 20 & Yes & Yes & No\\ \hline
+  Politecnico di Torino  & 2.7 & n/a\tnote{{b}} & 18 & Yes & Yes & Yes \\\hline
+  HIT  & 1.7 & n/a\tnote{{b}} & 40 & Yes & Yes & No \\\hline
+  Purdue OW Test Rig\tnote{{c}}  & 4.8 & 200 & 200 & Yes & Yes & Yes\\\hline
+\end{tabular}
+\begin{tablenotes}
+\item[{a}] Estimated by the authors\\
+\item[{b}] Data not available\\
+\item[{c}] Proposed in this work
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 
-\section{Design and Fabrication of the Single-Wheel Test Rig}
 
+\section{Design and Fabrication of the Single Wheel Test Rig}
 
 
 
