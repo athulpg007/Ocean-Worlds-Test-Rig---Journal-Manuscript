@@ -7,7 +7,7 @@
 \usepackage{tablefootnote}
 \usepackage{hyperref}
 \usepackage[para,online,flushleft]{threeparttable}
-
+\usepackage{amsmath}
 
 %% Uncomment line below for double spacing
 %\doublespacing
@@ -112,7 +112,7 @@ Figure \ref{fig:existing-test-rigs}(a) shows the Massachusetts Institute of Tech
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=6.5in]{images/existing-test-rigs.pdf}
+\includegraphics[width=6.5in]{general-images/existing-test-rigs.pdf}
 \caption{Existing single-wheel test rigs at various academic and research institutions. (a) MIT Single Wheel Test Rig \cite{senatore2014modeling}; (b) CMU Single Wheel Soil Imaging Testbed \cite{moreland2012soil}; (c) ESA ExoMars Project Single Wheel Test Rig \cite{gallina2014parameter}; (d) Tohuku University Single Wheel Test Bed \cite{ishigami2008terramechanics}; (e) Politecnico di Torino Single Wheel Test Rig \cite{genta2016testing}; (f) Harbin Institute of Technology (HIT) Wheel-Soil Interaction Test Bed \cite{ding2013experimental}}
 \label{fig:existing-test-rigs}
 \end{figure}
@@ -147,10 +147,42 @@ Figure \ref{fig:existing-test-rigs}(a) shows the Massachusetts Institute of Tech
 \section{Design and Fabrication of the Single Wheel Test Rig}
 \label{sec:design-and-fabrication-of-test-rig}
 
-The high-level objective(s) of the work described in this paper are as follows: 1) Design and construction of a single wheel test rig for Ocean World rovers, and 2) Construction of a prototype novel large-diameter deployable rover wheel. A detailed description of the prototype wheel is given in Section \ref{sec:tire-prototyoe-fabrication}. The requirements for the test rig are derived from these high-level objectives, and are described in the following subsection.
+The high-level objective(s) of the work described in this paper are as follows: 1) Design and construction of a single wheel test rig for Ocean World rovers, and 2) Construction of a prototype novel large-diameter deployable rover wheel. 3) Demonstrate the test rig capabilities using the prototype wheel under a range of slip ratios and other test conditions expected on Ocean World surfaces.  A detailed description of the design, fabrication, and design rationale of the prototype wheel is given in Section \ref{sec:tire-prototyoe-fabrication}. The requirements for the test rig are derived from these high-level objectives, and are described in the following subsections.
 
 \subsection{System Requirements and Constraints}
 
+The rig design is largely driven by the requirement to accommodate the prototype test tire which is approximately 1 meter in diameter and 25 cm in width.  During the early stage of the design, the team considered the choice between using a horizontally moving surface with the wheel held in place, as opposed to a static surface on which the wheel will be rolled over. While a moving underlying surface is ideally suited for flat surfaces and is widely used in the automobile industry for dynamic wheel testing, it presents inherent difficulties when more flexibility is required in terms of the nature of the surface.  To accommodate a wide range of surface features such as granular ice and boulder fields, the team decided to use a horizontally moving wheel over a static test bed which can be reconfigured with different surface conditions. 
+
+The length of the test-rig is driven by empirical rule that the test should run for at least one wheel revolution to accommodate startup transients before the wheel reaches the desired slip conditions.  This imposed a requirement of at least 3.5 meters of usable test bed length. The maximum allowable footprint (due to space constraints) of the test rig footprint was 6.0 meters. Considering these constraints, the test rig is 6 m x 2 m x 2 m (length x width x height), and provides 4.5 meters of usable test bed length. 
+
+The next major requirement is to be able to test the prototype wheel under a range of slip ratios. The wheel slip ratio $s$ is a non-dimensional parameter defined as follows \cite{ishigami2008terramechanics}.
+
+\begin{equation}
+        s =
+        \left\{ \begin{array}{ll}
+            (r\omega - v_x)/r\omega &  \text{if $|r\omega| > v_x$, positive slip} \\
+             (r\omega - v_x)/v_x &  \text{if $|r\omega| < v_x$, negative slip} 
+        \end{array} \right.
+    \end{equation}
+
+where $r$ is the wheel radius, $\omega$ is the wheel angular speed, and $v_x$ is the wheel horizontal speed. Clearly, the range of operating angular speed and horizontal speed of the wheel will determine the achievable slip ratios. Planetary rovers typically operate at very low speeds ($<$ 0.1 m/s), and hence most existing single wheel test rigs are designed to operate at such speeds as seen in Table \ref{tab:existing-test-rigs}. Figure \ref{fig:slip-ratio-chart} shows the required wheel angular speed as a function of the wheel horizontal speed for a range of slip ratios. Ideally, the test rig should be capable of accommodating the entire theoretical range of slip ratios for any given horizontal speed. However, as seen in Figure \ref{fig:slip-ratio-chart}, this is not realizable as the required angular velocity increases sharply as the slip ratio approaches 1.0. The selected operating range for $\omega$ and $v_x$ are shown in green in Fig. \ref{fig:slip-ratio-chart} which allows slip ratios as high as 0.8 for a nominal horizontal speed of 0.1 m/s. The upper limit for $v_x$ of 0.2 m/s is a somewhat arbitrary design requirement selected for the carriage-system design described in \ref{subsubsec:carriage-motion}, and to be able to achieve negative slip values with reasonably large $\omega$ ($> 0.2$ rad/s) as shown in Fig. \ref{fig:slip-ratio-chart}. 
+
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=3.15in]{plots/slip-ratios.eps}
+\caption{Required wheel angular speed as a function of horizontal travel speed at various slip ratios (for the prototype test wheel with diameter = 0.956 m)}
+\label{fig:slip-ratio-chart}
+\end{figure}
+
+\subsection{Mechanical System Design}
+
+
+\subsubsection{Superstructure}
+
+
+\subsubsection{Carriage Motion}
+\label{subsubsec:carriage-motion}
 
 
 
@@ -158,31 +190,10 @@ The high-level objective(s) of the work described in this paper are as follows: 
 \label{sec:tire-prototyoe-fabrication}
 
 \section{Experimental Setup and Procedure}
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=5in]{images/C3-Curves.eps}
-\caption{Sample image.}
-\label{sample-image}
-\end{figure}
+
 
 \section{Verification and Validation}
-\begin{table}[htpb!]
-\caption{Sample table title} \label{sample-table}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-  \hline
-% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-   & $k_{g}$ & $k_{o}$ & $c_{3}$ & $c_{4}$ & $c_{5}$ \\
-  \hline\hline
-  Careful/Sparse & 0.334 & 0.597 & 1.101 & 9.621 & 8.170 \\ \hline
-  Careful/Dense & 3.124 & 3.195 & 1.094 & 5.899 & 7.318 \\ \hline
-  Aggressive/Sparse & 0.840 & 9.153 & 2.853 & 8.274 & 0.187 \\ \hline
-  Aggressive/Dense & 4.838 & 2.841 & 0.670 & 7.952 & 0.386 \\ \hline
-  Hand-Tuned & 0.767 & 0.060 & 0.340 & 2.000 & 0.250 \\
-  \hline
-\end{tabular}
-\end{center}
-\end{table}
+
 
 \section{Sample Test Results with Prototype Tire}
 
