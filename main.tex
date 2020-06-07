@@ -9,6 +9,9 @@
 \usepackage[para,online,flushleft]{threeparttable}
 \usepackage{amsmath}
 \usepackage{xcolor}
+\usepackage{subfig}
+\usepackage{subcaption}
+\usepackage[final]{pdfpages}
 
 %% Uncomment line below for double spacing
 %\doublespacing
@@ -224,7 +227,31 @@ The most important measurements of interest are the forces and moments on the wh
 
 \section{Tire Prototype Fabrication}
 \label{sec:tire-prototyoe-fabrication}
+Innovation in tire design for the mobility system has been critical over the years to adapt to the surface features as we learn more about them through previous missions. 
 
+\begin{figure}[hbt!]
+    \centering
+    \begin{minipage}{0.35\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/MSLtire.jpg}}
+    \end{minipage}
+    \begin{minipage}{0.28\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/mars2020.jpg}}
+    \end{minipage}
+        \begin{minipage}{0.35\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/glennsma.jpg}}
+    \end{minipage}\par\medskip
+    \caption{}
+    \label{soa_wheels}
+\end{figure}
+
+\subsection{Tire requirements}
+
+\subsection{Tire design}
+
+\subsection{Integration with Test Rig}
 
 \section{Experimental Setup and Procedure}
 
@@ -243,5 +270,6 @@ This is the acknowledgement.
 
 \bibliographystyle{apalike}
 \bibliography{references}
-
+\setboolean{@twoside}{false}
+\includepdf[pages=-, offset=0 0 ]{electronic_artwork_guidelines.pdf}
 \end{document}
