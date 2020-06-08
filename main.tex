@@ -227,31 +227,114 @@ The most important measurements of interest are the forces and moments on the wh
 
 \section{Tire Prototype Fabrication}
 \label{sec:tire-prototyoe-fabrication}
-Innovation in tire design for the mobility system has been critical over the years to adapt to the surface features as we learn more about them through previous missions. 
+Innovation in tire design for the mobility system has been critical over the years to adapt to the surface features as we learn more about them through previous missions. Figure \ref{soa_wheels} shows the state of the art in planetary rovers that have matured TRL. The MSL tires are made from whole blocks of aluminium and are 50 centimeters in diameter and 40 centimeters wide \cite{haggart2008mobility}. The tires endured significant damage under stress levels due to sharp rocks that they were not tested for \cite{toupet2018traction}. The design was modified for the Mars 2020 rover, with slightly larger diameter, smaller width, and increased thickness to improve robustness. The number of treads on the rim are doubled and have a sinusoidal curve over the W-shaped pattern of MSL tires \cite{inotsume2019parametric}. These rigid tires will not be effective for jagged features of ocean worlds. We need conformable tires to traverse the rough terrain of the scientifically interesting sites on the icy moons.
+
+\begin{figure}[hbt!]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/MSLtire2.jpg}}
+    \end{minipage}
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/mars2020.jpg}}
+    \end{minipage}
+        \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/glennsma2.jpg}}
+    \end{minipage}
+    \caption{State of the art in rover wheels at NASA. (a) The left middle wheel of MSL rover image taken by Mars Hand Lens Imager (MAHLI) of MSL. The holes on tire surface and broken tread on top can be seen. Credit: NASA/JPL/PIA21486. (b) Mars 2020 rover wheel with increased count and modified curvature of treads. Credit: NASA/JPL/PIA23269. (c) The spring tire made from nickel titanium SMA going under durability test in simulated Mars terrain at JPL. Credit: NASA/Imaging Technology Center at NASA Glenn.}
+    \label{soa_wheels}
+\end{figure}
+
+NASA Glenn has designed and developed spring metal tires for exploration rovers on Moon and Mars. Figure \ref{soa_wheels} (c) shows the spring metal tire made from nickel titanium, a shape memory alloy (SMA). It provides better traction in sand, more durability, conformity and is lighter \cite{padula2018shape}. Scalability and stowage of large diameter tires would be challenging with the SMA tires. 
+
+\subsection{Tire requirements}
+The rugged terrain, variety in surface features, cold environment and reachability leads to following requirements from the tire that are addressed in the design:
+\begin{itemize}
+    \item Large diameter: The size of obstacles that the rover can go over is proportional to the wheel diameter. With a 6 wheel rocker bogie mobility system similar to that on MSL and Mars 2020 rovers, the rovers can go over obstacles 1.5 times as big as the wheel diameter. In the rugged terrain of the icy moons, big boulders and tall penitents can be found. To overcome these obstacles, large diameter wheels are required.
+    \item Expandable: Large wheels will occupy large volume in the payload fairing. To meet the mission requirements, having expandable wheels are crucial. It provides more space for valuable scientific instruments. 
+    \item Conformable: Conformity reduces huge point loads on tire surfaces. When a tire confirms to the surface, the friction is significantly increased and the tire gently rolls over sharp rocks without slippage which otherwise can result in extreme damage as the tire slips and grinds against a sharp surface trying to gain traction.      
+    \item Scalable: A scalable design helps in predicting behaviour of larger wheels by testing smaller wheels that can be iterated faster.
+    \item Stowable: The ocean world rover will be large and will need to be stowed in the lander structure, which could be a sky crane similar to the one used for landing MSL rover on Mars surface. The tires should be compactly stowable for practical accommodation. 
+    \item Wear and puncture resistant: As we saw with MSL, the tires can face loads that it is not tested for. Given that we don't know as much about the surface of the ocean worlds as we do about Mars, it creates a greater robustness issue. Therefore, the design must be extremely wear and puncture resistant. 
+    \item Radiation resistant: The radiation levels on the surface of Europa is high due to Jupiter's magnetic field. The tires must survive in this environment for the duration of the mission to be able to do meaningful in situ science. 
+    \item Traction for variety of surfaces and steep inclines: The scientifically interesting sites on the icy moons pose challenges to the mobility system due to the variety and scale of surface features. The icy features at the surface temperature are harder than rocks [Reference?]. The tire must provide excellent traction to traverse such terrain.  
+    
+\end{itemize}
+
+\subsection{Tire design}
+The proposed tire is based on a cutting edge fabric structure called Ultra High Performance Vessel (UHPV). The UHPV was developed by Thin Red Line Aerospace (TRLA) to address NASA's problem with performance predictability in inflatable structures. TRLA has participated in numerous NASA programs developing mission applications of its patented fabric architecture and validating the predictable scalable performance of its unique structures [References to reports]. 
+
+The tire design, as shown in Figure \ref{fig:tire_design_original}, is created by the utilization of UHPV annulus and oblate spheroid geometries. The exterior tire surface is an unpressurized annulus vessel that is tensioned by a series of interior UHPV oblate spheroids. The configuration is similar to taht of ball bearings in a race. The spheroids are also unpressurized and their tendons are tensioned by embedded leaf springs that force the default geometry into place. In addition, a pair of narrow anulus vessels are located within the tire assembly along a circumferential path above and below the spheroids. The narrow annulus vessels are pressured during the deployment process to expand the fabric assembly into its functional geometry. Once deployed, the leaf springs in the oblate spheroids lockup and the tire assembly does not require the outer narrow annulus to be pressurized. However, the smaller diameter inner annulus is required to be pressurized to keep the spokes that form the wheel to be tensioned. This inner annulus is well distanced from the tire tread that remains in contact with the surface. The reliability of the tire can be greatly increased by providing a redundant inner annulus at a very small increase in cost.
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1\textwidth]{general-images/tire_design_original.png}
+\caption{Conceptual design of the tire. (a) Components of the tire assembly. (b) Cross-section of spheroids.}
+\label{fig:tire_design_original}
+\end{figure}
+
+The resultant configuration is extremely resistant to puncture. It is a lightweight, rugged tire design that conforms to rocky and jagged surfaces which eliminates concentrated contact loads on the tire. The expandable rover tire can be compactly stowed. The UHPV fabric structure makes it scalable. 
+
+In the prototype tire, the geometry defined in the conceptual design is created using inflatable UHPV oblate spheroids. These spheroids are installed on a metallic rim. An exterior cover is installed to create the effect of the outer annulus cover by enhancing the circularity of the tire's outer mold line. Figure \ref{tire_design} shows rendering of the prototype design.   
+
+\begin{figure}[hbt!]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_design_interior.jpg}}
+    \end{minipage}
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_design_interiorfront.jpg}}
+    \end{minipage}
+        \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_design_complete.jpg}}
+    \end{minipage}
+    \caption{Design rendering of the tire prototype. (a) Spheroids inside an exterior cover, mounted on a circular metallic ring. (b) Axial view of the tire interior. (c) Tire with the exterior cover. (Thin Red Line Aerospace Proprietary information)}
+    \label{tire_design}
+\end{figure}
+
+The fabricated prototype tire is shown in Figure \ref{tire_prototype}. There are 8 inflatable UHPV segments mounted around the outside circumference of a black metallic wheel rim. A central wheel hub facilitates attachment of the wheel assembly to the test rig's axle. Structural concentricity of the hub and rim is provided by an array of 64 flexible Vectran\textsuperscript{\textregistered} fiber cordage tendon spokes. An exterior cover is installed over the 8 UHPV inflatable segments. The cover reacts the axial distension of the UHPV inflatables (i.e. radially outwards from the wheel center) to enhance the circularity of the tire's outer mold line. All 8 yellow inflatable UHPV tire segments are pneumatically manifolded to one-another by means of a circle of clear plastic tubing concentrically positioned between wheel rim and hub.The tread surface of the tire incorporates 16 sleeves into which tubing stiffeners are inserted to simulate tread-like protrusions. 
+
 
 \begin{figure}[hbt!]
     \centering
     \begin{minipage}{0.35\textwidth}
         \centering
-        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/MSLtire.jpg}}
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_prototype_interior.jpg}}
     \end{minipage}
-    \begin{minipage}{0.28\textwidth}
+    \begin{minipage}{0.6\textwidth}
         \centering
-        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/mars2020.jpg}}
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_prototype_complete.jpg}}
     \end{minipage}
-        \begin{minipage}{0.35\textwidth}
-        \centering
-        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/glennsma.jpg}}
-    \end{minipage}\par\medskip
-    \caption{}
-    \label{soa_wheels}
+    \caption{Fabricated prototype of the tire. (a) 8 inflated UHPV spheroids on a black metallic rim and tensioned spokes. (b) Exterior cover installed over the 8 UHPV inflatable segments. (Thin Red Line Aerospace Proprietary information)}
+    \label{tire_prototype}
 \end{figure}
 
-\subsection{Tire requirements}
-
-\subsection{Tire design}
-
 \subsection{Integration with Test Rig}
+
+The tire is mounted on the test rig by attaching the wheel hub to the axle of wheel motor on the rig. Figure \ref{tire_on_rig} shows the mounted tire. A shaft collar is attached to the end of the wheel motor axle. The shaft collar is fitted an adapter to the force and torque sensor, whose other end is attached to another adapter on which the wheel hub is mounted. The adapter between sensor and wheel hub can be modified to mount different wheels. The tire can roll in the surface simulant box along the length of the test rig and be tilted to have non-zero slip and camber angles. 
+
+\begin{figure}[hbt!]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_on_rig_front.jpg}}
+    \end{minipage}
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_on_rig_motor_side.jpg}}
+    \end{minipage}
+        \begin{minipage}{0.32\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_on_rig_sideview.jpg}}
+    \end{minipage}
+    \caption{Prototype tire mounted on test rig. (a) Front view of the inflated tire sitting on a smooth surface. (b) Back view showing the wheel hub assembly attached to the test rig assembly. (c) Side view showing the tire mounted and resting in the surface simulant box.}
+    \label{tire_on_rig}
+\end{figure}
 
 \section{Experimental Setup and Procedure}
 
