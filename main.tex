@@ -10,7 +10,7 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{subfig}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 \usepackage[final]{pdfpages}
 
 %% Uncomment line below for double spacing
@@ -30,6 +30,13 @@ Purdue University\\
 West Lafayette, IN 47907 \\
 \texttt{apradee@purdue.edu} \\
 \And
+Rachana Agrawal \\
+School of Aeronautics and Astronautics \\
+Purdue University \\
+West Lafayette, IN 47907 \\
+\texttt{agrawa77@purdue.edu} \\
+
+\And
 Ye Lu \\
 School of Aeronautics and Astronautics \\
 Purdue University \\
@@ -41,12 +48,6 @@ School of Aeronautics and Astronautics \\
 Purdue University \\
 West Lafayette, IN 47907 \\
 \texttt{arora31@purdue.edu} \\
-\And
-Rachana Agrawal \\
-School of Aeronautics and Astronautics \\
-Purdue University \\
-West Lafayette, IN 47907 \\
-\texttt{agrawa77@purdue.edu} \\
 \And
 Maxim de Jong \\
 Thin Red Line Aerospace \\
@@ -174,7 +175,7 @@ where $r$ is the wheel radius, $\omega$ is the wheel angular speed, and $v_x$ is
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=3.15in]{plots/slip-ratios.eps}
+\includegraphics[width=3.25in]{plots/slip-ratios.eps}
 \caption{Required wheel angular speed as a function of horizontal travel speed at various slip ratios (for the prototype test wheel with diameter = 0.956 m)}
 \label{fig:slip-ratio-chart}
 \end{figure}
@@ -217,13 +218,37 @@ The most important measurements of interest are the forces and moments on the wh
 \subsection{Mechanical System Design}
 
 
+
 \subsubsection{Superstructure}
 
 
 \subsubsection{Carriage Motion}
 \label{subsubsec:carriage-motion}
 
+\subsection{Slip and Camber}
+
+The test rig has the capability to change the side slip and camber angles of the wheel, prior to a test. The range of adjustable angles is $\pm 30^\circ$. The slip mechanism consists of a linear actuator that applies moment about a hinge attached to a vertical rod. The actuator extends out to rotate the wheel counter-clockwise about the vertical axis (z axis). This slip mechanism was selected after trade-off with a motor-gear system that converts rotational motion about a horizontal axis to a vertical axis. The selected mechanism reduces the load on the actuator and puts the load on the hinge, which does not require power. A rotary sensor attached to the hinge measures the slip angle about the axis of rotation. 
+
+The camber mechanism consists of a servo motor-gear system that can move the wheel-motor assembly about the axis of traverse (x axis). The camber motor can hold a position when powered. An inclinometer attached to the wheel-motor assembly rod measures the camber angle. Figure \ref{fig:slipcamber} shows CAD design of the slip and camber mechanism with the corresponding axis of rotation.  
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1\textwidth]{plots/slip_camber_mechanism.PNG}
+\caption{Slip and camber angle control mechanism.}
+\label{fig:slipcamber}
+\end{figure}
+
 \subsection{Electrical System Design}
+
+The electrical components, including wheel motor, slip and camber actuators and the sensors are attached to the moving carriage frame. Thus majority of the electrical sub-system moves back and forth across a ~5 meter long track. All the cables from instruments on the carriage are routed through an energy chain system that allows a guided motion of the cables. The motors are controlled through individual motor controllers that receive command from the computer. The sensors send the signal to the computer through the NI-DAQ input/output device. All instruments are powered through two DC power supplies. Figure \ref{fig:electrical-diagram} shows the schematics of the electrical sub-system.  
+
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1\textwidth]{plots/electrical_components_diagram.PNG}
+\caption{Block diagram of electrical subsystem. Green - sensors. Yellow - actuators.}
+\label{fig:electrical-diagram}
+\end{figure}
 
 \section{Tire Prototype Fabrication}
 \label{sec:tire-prototyoe-fabrication}
@@ -343,6 +368,68 @@ The tire is mounted on the test rig by attaching the wheel hub to the axle of wh
 
 
 \section{Sample Test Results with Prototype Tire}
+
+\subsection{Data Analysis}
+Data analysis process comprise of smoothing and fitting of the sensor data. Figure \ref{fig:data-processing-algorithm} shows an overview of the data processing algorithm. The sensor data along with parameters of a single test are recorded in a file. The input parameters for a test include: load, slip ratio, side slip and camber angles. The data corresponding to the FT sensor, load cell, vertical and horizontal draw wire sensor, inclinometer, and rotary sensor are extracted. 
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.6\textwidth]{general-images/test_rig_data_analysis.png}
+\caption{Data processing algorithm for analysis of sensor data}
+\label{fig:data-processing-algorithm}
+\end{figure}
+
+A filter is applied to smooth the data. The ideal curves are fitted for each type of data. The root mean square for each fit is calculated. The FT sensor is fixed on the wheel and thus gives output in the rotating frame. The FT sensor data is transformed to the inertial frame for the final output. Figure \ref{data-fits} shows plots for FT sensor output data along with the smoothed and fitted data points for Fx and Fy, for the case of 10 N load, zero slip ratio, zero slip and camber angles. A sin and cos function is fitted for Fx and Fy respectively. The curves have a constant bias that is eliminated when transforming to inertial frame.  
+
+\begin{figure}[hbt!]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{plots/Fx-vs-time-case1.eps}}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{plots/Fy-vs-time-case1.eps}}
+    \end{minipage}
+    \caption{Data fits for Fx and Fy in the wheel rotating frame.}
+    \label{data-fits}
+\end{figure}
+
+We performed tests on the inflatable wheel from TRLA. We used two surface types: (1) flat surface with sand paper on top, and (2) ocean worlds surface simulant - glass beads. Figure \ref{fig:drawbar-pull-vs-slip-ratio} shows drawbar pull force from the tests for various slip ratio and load conditions. The drawbar pull force or traction force, increases with increasing slip ratio. Up to 30 N load, the traction force peaks around 0.2 slip ratio for both the surface types. For higher slip ratios, the traction force decreases and then flattens out. This indicates that the wheel performance does not worsen at higher slip ratios. 
+
+\begin{figure}[hbt!]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{plots/drawbar-pull-vs-slip-ratio-flat.eps}}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \subfloat[]{\includegraphics[width=1\textwidth]{plots/drawbar-pull-vs-slip-ratio-sand.eps}}
+    \end{minipage}
+    \caption{Draw bar pull force vs slip ratio for 4 load conditions. (Left) On flat rough surface. (Right) On glass beads surface simulant.}
+    \label{fig:drawbar-pull-vs-slip-ratio}
+\end{figure}
+
+Figure \ref{fig:torque-vs-slip-ratio-flat} shows the torque about the wheel rotating axis variation with slip ration for 4 load conditions. As with the traction force, the torque flattens our for slip ratio greater than 0.2. The torque also increases with increasing load, similar to the drawbar pull force. This is because as the load is increased, the contact area between the wheel and surface increases. 
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=3.25in]{plots/torque-vs-slip-ratio-flat.eps}
+\caption{Torque vs slip ratio for 4 load conditions on a flat rough surface.}
+\label{fig:torque-vs-slip-ratio-flat}
+\end{figure}
+
+Figure \ref{fig:lateral-force-vs-side-slip} shows the lateral force for various load conditions and two side slip angles. The lateral force is close to zero for zero side slip which is as expected. The small non-zero values are due to asymmetry in the actual wheel and a very small non-zero slip angle due to step control of the motors. The large lateral force for a 10$^\circ$ slip angle is expected since the wheel rotation axis and direction of traverse are not perpendicular, so the traction force has a component in the perpendicular direction to that of traverse.  
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=3.25in]{plots/lateral-force-vs-side-slip.eps}
+\caption{Lateral force vs side slip angle for 4 load conditions on a flat rough surface. The slip ratio is zero.}
+\label{fig:lateral-force-vs-side-slip}
+\end{figure}
+
+
 
 \section{Conclusions}
 
