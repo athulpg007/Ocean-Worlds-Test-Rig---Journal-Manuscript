@@ -84,18 +84,21 @@ West Lafayette, IN 47907 \\
 \maketitle
 
 \begin{abstract}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maximes.
+
+This work provides an overview of a multi-year project in developing a single wheel test rig in support of the wheel design and testing for Ocean Worlds exploration. Design, assembly, and testing operation of the test rig are discussed and shown in details with key requirements including large diameter tire testing, reduced gravity test condition, flexible surface features, and flexible camber and slip angle settings. The design and fabrication of a prototype wheel is also discussed. 
+
+
 \end{abstract}
 
 \section{Introduction}
 \label{sec:introduction}
-Mobility systems have proven to be of immense value in in-situ planetary exploration over the last five decades since Lunokhod-1, the first successful rover to operate on the lunar surface in 1970 \cite{sanguino201750,kassel1971lunokhod}. As opposed to orbital platforms which can only perform remote-sensing investigations and static landers which provide in-situ data but only for a single site, mobility systems enable in-situ measurements across a range of scientifically interesting sites. A wide range of mobility systems which include rovers, articulated robots, hoppers, helicopters, multicopters, balloons, airplanes, floating platforms, ice drills, and submersibles have been proposed for planetary exploration across the Solar System \cite{iagnemma2004mobile,preumont1997conceptual,fiorini1999hopping,balaram2018mars,hassanalian2018evolution,yajima2009scientific,landis2005venus,mitri2014exploration,weiss2008study,lorenz2018exploring}. 
+Mobility systems have provided immense value in in-situ planetary exploration over the last five decades since Lunokhod-1, the first successful rover to operate on the lunar surface in 1970 \cite{sanguino201750,kassel1971lunokhod}. As opposed to orbital platforms which can only perform remote-sensing investigations and static landers which provide in-situ data but only for a single site, mobility systems enable in-situ measurements across a range of scientifically interesting sites. A wide range of mobility systems which include rovers, articulated robots, hoppers, helicopters, multicopters, balloons, airplanes, floating platforms, ice drills, and submersibles have been proposed for planetary exploration across the Solar System \cite{iagnemma2004mobile,preumont1997conceptual,fiorini1999hopping,balaram2018mars,hassanalian2018evolution,yajima2009scientific,landis2005venus,mitri2014exploration,weiss2008study,lorenz2018exploring}. 
 
 At the time of writing, NASA's Curiosity rover is operational on the Martian surface since 2012 and the Perseverance rover has been operational since 2021 \cite{welch2013systems,williford2018nasa}. The European Space Agency's Rosalind Franklin rover is scheduled to arrive at Mars in 2022 \cite{vago2017habitability}. The Chinese National Space Agency's Yutu 2 rover is operational on the lunar far side and has become the longest operational lunar rover, breaking Lunokhod-1's previous record of 10.5 months \cite{ling2019close}.
 
-The continued interest and commitment in surface mobility systems despite their inherently higher costs compared to orbiter and lander missions underscore their importance in future planetary exploration. However, the poorly known surface properties and features (loose sand, large boulders, sharp rocks etc.) present significant engineering challenges to surface mobility systems. Perhaps the most notable example is NASA's Spirit rover which became trapped in soft sand and could not gain traction to free itself, eventually leading to a loss of mission \cite{lorenz2014moving}. Prior to the embedding event, the Spirit rover had experienced significant slippage when crossing fine-grained surfaces \cite{li2008characterization}. The twin rover Opportunity has also been subject to such near-embedding events as it traversed deformable sand terrain \cite{zhou2014simulations,arvidson2011opportunity}. Similar slippage and sinkage problems were encountered by the Curiosity rover when crossing ripple fields \cite{arvidson2014roving}; in addition to significant wheel damage from traversing over sharp rock outcrops \cite{arvidson2017relating}. These experiences make it clear that a thorough understanding of the wheel-soil/terrain interaction is of critical importance for planning future missions which include surface mobility systems. The Mars rovers used a combination of numerical modeling, single-wheel test rig experiments, and full vehicle field tests in analog sites such as the Mojave Desert to characterize the wheel-terrain interaction and predict vehicle performance. Based on the data, the operations teams select the best possible path so as to minimize the risk of undesirable events such as embedding in a sand trap.
+The continued interest and commitment in surface mobility systems despite their inherently higher costs compared to orbiter and lander missions underscore their importance in future planetary exploration. However, the poorly known surface properties and features (loose sand, large boulders, sharp rocks etc.) present significant engineering challenges to surface mobility systems. The most notable example is NASA's Spirit rover which became trapped in soft sand and could not gain traction to free itself, eventually leading to a loss of mission \cite{lorenz2014moving}. Prior to the embedding event, the Spirit rover had experienced significant slippage when crossing fine-grained surfaces \cite{li2008characterization}. The twin rover Opportunity has also been a subject to such near-embedding events as it traversed deformable sand terrain \cite{zhou2014simulations,arvidson2011opportunity}. Similar slippage and sinkage problems were encountered by the Curiosity rover when crossing ripple fields \cite{arvidson2014roving}; in addition to significant wheel damage from traversing over sharp rock outcrops \cite{arvidson2017relating}. These experiences make it clear that a thorough understanding of the wheel-soil/terrain interaction is of critical importance for planning future missions which include surface mobility systems. The Mars rovers used a combination of numerical modeling, single-wheel test rig experiments, and full vehicle field tests in analog sites such as the Mojave Desert to characterize the wheel-terrain interaction and predict vehicle performance. Based on the data, the operations teams select the best possible path so as to minimize the risk of undesirable events such as embedding in a sand trap.
 
-While the majority of the existing literature in the field of planetary rovers focus on the Moon and Mars, the Ocean Worlds such as Europa and Enceladus in the outer Solar System are potential targets for in-situ exploration in the near future \cite{sherwood2018program}. These worlds are known to harbor massive liquid water oceans underneath their icy crust, and are prime candidates in the search of life beyond Earth \cite{nimmo2016ocean}. Multiple studies have investigated the scientific potential and technical challenges of lander and mobile platforms on Europa and Enceladus \cite{pappalardo2013science,patthoff2018science,hand2017report,hobley2013rough,nayar2017surface}. Ocean Worlds such as Europa present a significantly more challenging environment compared to Mars due to the extremely cold temperature, high radiation dosage, and the poorly constrained material properties under these conditions. Preliminary studies using photopolarimetric observations suggest that granular ice under cryogenic and vacuum conditions may be extremely fine grained material and is a potential hazard to landed spacecraft \cite{nelson2018laboratory}. Other potential hazards include penitent-like formations which create sharp ice outcrops \cite{hobley2018formation}; or massive boulder fields as seen by Cassini during close flybys of Enceladus \cite{porco2006cassini}. Researchers at Purdue University have developed a unique single wheel test rig to characterize wheel terrain interactions for future Ocean World mobility systems. The test-rig accommodates tires as large as 2 meters in diameter, and features a test-bed which can simulate varied surface features such as fine grained ice, smooth hard ice, sharp rock formations and boulder outcrops of a range of size distributions. This paper describes the design, capabilities, initial results and future applications of the Purdue single wheel test rig for Ocean World rovers. 
+While the majority of the existing literature in the field of planetary rovers focus on the Moon and Mars, the Ocean Worlds such as Europa and Enceladus in the outer Solar System are high-priority targets for in-situ exploration in the near future \cite{sherwood2018program}. These Ocean Worlds are known to harbor massive liquid water oceans underneath their icy crust, and are prime candidates in the search of life beyond Earth \cite{nimmo2016ocean}. Multiple studies have investigated the scientific potential and technical challenges of lander and mobile platforms on Europa and Enceladus \cite{pappalardo2013science,patthoff2018science,hand2017report,hobley2013rough,nayar2017surface}. Ocean Worlds such as Europa present a significantly more challenging environment compared to Mars due to the extremely cold temperature, high radiation dosage, and the poorly constrained material properties under these conditions. Preliminary studies using photopolarimetric observations suggest that granular ice under cryogenic and vacuum conditions may be extremely fine grained material and is a potential hazard to landed spacecraft \cite{nelson2018laboratory}. Other potential hazards include penitent-like formations which create sharp ice outcrops \cite{hobley2018formation}; or massive boulder fields as seen by Cassini during close flybys of Enceladus \cite{porco2006cassini}. Researchers at Purdue University have developed a unique single wheel test rig to characterize wheel terrain interactions for future Ocean World mobility systems. The test-rig accommodates tires as large as 2 meters in diameter, and features a test-bed which can simulate varied surface features such as fine grained ice, smooth hard ice, sharp rock formations and boulder outcrops of a range of size distributions. This paper describes the design, capabilities, initial results and future applications of the Purdue single wheel test rig for Ocean World rovers. 
 
 
 
@@ -110,13 +113,13 @@ While the majority of the existing literature in the field of planetary rovers f
 
 Understanding wheel-terrain interaction requires a combination of numerical models, theoretical methods, and experimental techniques. The single wheel test rig is an important element within the larger set of experimental techniques, and is often required to validate the terramechanics models as well as provide empirical relationships for use in these models. Numerous single-wheel test rigs have been developed by universities and other institutes to characterize wheel-terrain interaction in support of planetary missions. This section provides a brief overview of a selected set of existing single-wheel test rigs and their capabilities.
 
-Figure \ref{fig:existing-test-rigs}(a) shows the Massachusetts Institute of Technology (MIT) single wheel test rig used in support of the Curiosity rover operations on the Martian surface. The test rig allows control of the wheel slip ratio and the vertical load and measures the traction force, driving torque, and wheel sinkage in Mars simulant soil \cite{senatore2014modeling}. Figure \ref{fig:existing-test-rigs}(b) shows the Carnegie Mellon University (CMU) single wheel soil imaging test bed also used in support of the Curiosity rover. The CMU test rig provide a unique imaging and analysis capability of soil motion at and below the wheel-soil interface \cite{moreland2012soil}. Figure \ref{fig:existing-test-rigs}(c) shows the Rover Chassis Evaluation Tool (RCET) single wheel test rig built at the German Aerospace Center (DLR) in support of the ExoMars rover project \cite{gallina2014parameter}.  Figure \ref{fig:existing-test-rigs}(d) shows the single wheel test bed at Tohuku University designed to support Japanese lunar exploration missions. In addition to the vertical load and slip ratio, the test rig allows control of the slip angle for the experiments \cite{ishigami2008terramechanics}. Figure \ref{fig:existing-test-rigs}(e) shows the single wheel test rig at Politecnico di Torino built in support of the AMALIA lunar rover mission \cite{della2010amalia}, and features slip and camber angle control during the test \cite{genta2016testing}. Figure \ref{fig:existing-test-rigs}(f) shows the wheel-soil interaction test bed at Harbin Institute of Technology in support of lunar exploration programs. Table \ref{tab:existing-test-rigs} summarizes the key characteristics and test capabilities of the various single wheel test rigs described in this section, and are compared to the proposed Purdue single wheel test rig for Ocean World rovers. More extensive reviews of both computational and experimental techniques for planetary wheel-soil interaction  are presented by in numerous review articles in the literature \cite{ding2011planetary,schafer2010planetary,sreenivasulu2014terramechanics}.
+Figure \ref{fig:existing-test-rigs}(a) shows the Massachusetts Institute of Technology (MIT) single wheel test rig used in support of the Curiosity rover operations on the Martian surface. The test rig allows control of the wheel slip ratio and the vertical load and measures the traction force, driving torque, and wheel sinkage in Mars simulant soil \cite{senatore2014modeling}. Figure \ref{fig:existing-test-rigs}(b) shows the Carnegie Mellon University (CMU) single wheel soil imaging test bed also used in support of the Curiosity rover. The CMU test rig provides a unique imaging  analysis capability of soil motion at and below the wheel-soil interface \cite{moreland2012soil}. Figure \ref{fig:existing-test-rigs}(c) shows the Rover Chassis Evaluation Tool (RCET) single wheel test rig built at the German Aerospace Center (DLR) in support of the ExoMars rover project \cite{gallina2014parameter}.  Figure \ref{fig:existing-test-rigs}(d) shows the single wheel test bed at Tohuku University designed to support Japanese lunar exploration missions. In addition to the vertical load and slip ratio, the test rig allows control of the slip angle for the experiments \cite{ishigami2008terramechanics}. Figure \ref{fig:existing-test-rigs}(e) shows the single wheel test rig at Politecnico di Torino built in support of the AMALIA lunar rover mission \cite{della2010amalia}, and features slip and camber angle control during the test \cite{genta2016testing}. Figure \ref{fig:existing-test-rigs}(f) shows the wheel-soil interaction test bed at Harbin Institute of Technology (HIT) in support of lunar exploration programs. Table \ref{tab:existing-test-rigs} summarizes the key characteristics and test capabilities of the various single wheel test rigs described in this section, and are compared to the proposed Purdue single wheel test rig for Ocean World rovers. More extensive reviews of both computational and experimental techniques for planetary wheel-soil interaction  are presented by in numerous review articles in the literature \cite{ding2011planetary,schafer2010planetary,sreenivasulu2014terramechanics}.
 
 
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=6.5in]{general-images/existing-test-rigs.pdf}
-\caption{Existing single-wheel test rigs at various academic and research institutions. (a) MIT Single Wheel Test Rig \cite{senatore2014modeling}; (b) CMU Single Wheel Soil Imaging Testbed \cite{moreland2012soil}; (c) ESA ExoMars Project Single Wheel Test Rig \cite{gallina2014parameter}; (d) Tohuku University Single Wheel Test Bed \cite{ishigami2008terramechanics}; (e) Politecnico di Torino Single Wheel Test Rig \cite{genta2016testing}; (f) Harbin Institute of Technology (HIT) Wheel-Soil Interaction Test Bed \cite{ding2013experimental}}
+\caption{Existing single-wheel test rigs at various academic and research institutions. (a) MIT Single Wheel Test Rig \cite{senatore2014modeling}; (b) CMU Single Wheel Soil Imaging Testbed \cite{moreland2012soil}; (c) ESA ExoMars Project Single Wheel Test Rig \cite{gallina2014parameter}; (d) Tohuku University Single Wheel Test Bed \cite{ishigami2008terramechanics}; (e) Politecnico di Torino Single Wheel Test Rig \cite{genta2016testing}; (f) HIT Wheel-Soil Interaction Test Bed \cite{ding2013experimental}}
 \label{fig:existing-test-rigs}
 \end{figure}
 
@@ -124,19 +127,19 @@ Figure \ref{fig:existing-test-rigs}(a) shows the Massachusetts Institute of Tech
 \caption{Summary of key characteristics and capabilities of the various single wheel test rigs}
 \label{tab:existing-test-rigs}
 \begin{threeparttable}
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
   \hline
 % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-   & Length, & Linear & Tire &  Slip ratio & Slip angle & Camber angle \\
-   & m &speed, mm/s & diameter, cm &  control & control & control \\
+   & Length & Speed & Tire &  Slip ratio & Slip angle & Camber angle & Dynamic \\
+   & m &mm/s & diameter, cm &  control & control & control & load control\\
   \hline\hline
-  MIT & 3.5 & 60 & 50 & \ding{51} & \ding{54} & \ding{54} \\ \hline
-  CMU  & 1.0\tnote{{a}} & 1.0 & 50 & \ding{51} & \ding{54} & \ding{54}\\ \hline
-  ESA RCET & 3.0\tnote{{a}} & n/a\tnote{{b}} & 25 & \ding{51} & n/a\tnote{{b}} & n/a\tnote{{b}}\\ \hline
-  Tohuku University & 2.0 & 35 & 20 & \ding{51} & \ding{51} & \ding{54}\\ \hline
-  Politecnico di Torino  & 2.7 & n/a\tnote{{b}} & 18 & \ding{51} & \ding{51} & \ding{51} \\\hline
-  HIT  & 1.7 & n/a\tnote{{b}} & 40 & \ding{51} & \ding{51} & \ding{54} \\\hline
-  Purdue OW Test Rig\tnote{{c}}  & 4.8 & 200 & 200 & \ding{51} & \ding{51} & \ding{51}\\\hline
+  MIT & 3.5 & 60 & 50 & \ding{51} & \ding{54} & \ding{54} &\ding{54}\\ \hline
+  CMU  & 1.0\tnote{{a}} & 1.0 & 50 & \ding{51} & \ding{54} & \ding{54} &\ding{54}\\ \hline
+  ESA RCET & 3.0\tnote{{a}} & n/a\tnote{{b}} & 25 & \ding{51} & n/a\tnote{{b}} & n/a\tnote{{b}} & \ding{54}\\ \hline
+  Tohuku  & 2.0 & 35 & 20 & \ding{51} & \ding{51} & \ding{54} & \ding{54}\\ \hline
+   Torino  & 2.7 & n/a\tnote{{b}} & 18 & \ding{51} & \ding{51} & \ding{51} & \ding{54}\\\hline
+  HIT  & 1.7 & n/a\tnote{{b}} & 40 & \ding{51} & \ding{51} & \ding{54} & \ding{54}\\\hline
+  Purdue \tnote{{c}}  & 4.8 & 200 & 200 & \ding{51} & \ding{51} & \ding{51}& \ding{51}\\\hline
 \end{tabular}
 \begin{tablenotes}
 \item[{a}] Estimated by the authors\\
@@ -149,13 +152,13 @@ Figure \ref{fig:existing-test-rigs}(a) shows the Massachusetts Institute of Tech
 \section{Design and Fabrication of the Single Wheel Test Rig}
 \label{sec:design-and-fabrication-of-test-rig}
 
-The high-level objective(s) of the work described in this paper are as follows: 1) Design and construction of a single wheel test rig for Ocean World rovers, and 2) Construction of a prototype novel large-diameter deployable rover wheel. 3) Demonstrate the test rig capabilities using the prototype wheel under a range of slip ratios and other test conditions expected on Ocean World surfaces.  A detailed description of the design, fabrication, and design rationale of the prototype wheel is given in Section \ref{sec:tire-prototyoe-fabrication}. The requirements for the test rig are derived from these high-level objectives, and are described in the following subsections.
+The high-level objectives of the work described in this paper are as follows: 1) Design and construction of a single wheel test rig for Ocean World rovers, 2) Construction of a prototype novel large-diameter deployable rover wheel, and 3) Demonstrate the test rig capabilities using the prototype wheel under a range of slip ratios and other test conditions expected on Ocean World surfaces. The requirements for the test rig are derived from these high-level objectives, and are described in the following subsections. Section \ref{sec:tire-prototyoe-fabrication} provides a detailed description of the design, fabrication, and design rationale of the prototype wheel. 
 
 \subsection{System Requirements and Constraints}
 
-The rig design is largely driven by the requirement to accommodate the prototype test tire which is approximately 1 meter in diameter and 25 cm in width.  During the early stage of the design, the team considered the choice between using a horizontally moving surface with the wheel held in place, as opposed to a static surface on which the wheel will be rolled over. While a moving underlying surface is ideally suited for flat surfaces and is widely used in the automobile industry for dynamic wheel testing, it presents inherent difficulties when more flexibility is required in terms of the nature of the surface.  To accommodate a wide range of surface features such as granular ice and boulder fields, the team decided to use a horizontally moving wheel over a static test bed which can be reconfigured with different surface conditions. 
+The overall rig design is driven by the requirement to accommodate the prototype test tire which is approximately 1 meter in diameter and 25 cm in width.  During the early stage of the design, the choice between using a horizontally moving surface with the wheel held in place was considered, as opposed to a static surface on which the wheel will be rolled over. While a moving underlying surface is ideally suited for flat surfaces and is widely used in the automobile industry for dynamic wheel testing, it presents inherent difficulties when flexibility is required in terms of the nature of the surface.  To accommodate a wide range of surface features such as granular ice and boulder fields, it was decided to use a horizontally moving wheel over a static test bed which can be reconfigured with different surface conditions. 
 
-The length of the test-rig is driven by empirical rule that the test should run for at least one wheel revolution to accommodate startup transients before the wheel reaches the desired slip conditions.  This imposed a requirement of at least 3.5 meters of usable test bed length. The maximum allowable footprint (due to space constraints) of the test rig footprint was 6.0 meters. Considering these constraints, the test rig is 6 m x 2 m x 2 m (length x width x height), and provides 4.5 meters of usable test bed length. 
+The length of the test-rig is driven by an empirical rule that the test should run for at least one wheel revolution to accommodate startup transients before the wheel reaches the desired slip conditions.  This imposed a requirement of at least 3.5 meters of usable test bed length. The maximum allowable footprint (due to space constraints) of the test rig footprint was 6.0 meters. Considering these constraints, the test rig is 6 m x 2 m x 2 m (length x width x height), and provides 4.5 meters of usable test bed length. 
 
 The next major requirement is to be able to test the prototype wheel under a range of slip ratios. The wheel slip ratio $s$ is a non-dimensional parameter defined as follows \cite{ishigami2008terramechanics}.
 
@@ -167,7 +170,7 @@ The next major requirement is to be able to test the prototype wheel under a ran
         \end{array} \right.
     \end{equation}
 
-where $r$ is the wheel radius, $\omega$ is the wheel angular speed, and $v_x$ is the wheel horizontal speed. A desired slip ratio is achieved by providing independent control of both the wheel angular speed and the wheel horizontal speed. Planetary rovers typically operate at very low speeds ($<$ 0.1 m/s), and hence most existing single wheel test rigs are designed to operate at such speeds as seen in Table \ref{tab:existing-test-rigs}. Figure \ref{fig:slip-ratio-chart} shows the required wheel angular speed as a function of the wheel horizontal speed for a range of slip ratios. Ideally, the test rig should be capable of accommodating the entire theoretical range of slip ratios for any given horizontal speed. However, as seen in Figure \ref{fig:slip-ratio-chart}, this is not realizable as the required angular velocity increases sharply as the slip ratio approaches 1.0. The selected operating range for $\omega$ and $v_x$ are shown in green in Fig. \ref{fig:slip-ratio-chart} which allows slip ratios as high as 0.8 for a nominal horizontal speed of 0.1 m/s. The upper limit for $v_x$ of 0.2 m/s is an arbitrary design requirement based on expected the expected speed of a future planetary rover, and to achieve negative slip values with reasonably large $\omega$ ($> 0.2$ rad/s) as shown in Fig. \ref{fig:slip-ratio-chart}. 
+where $r$ is the wheel radius, $\omega$ is the wheel angular speed, and $v_x$ is the wheel horizontal speed. A desired slip ratio is achieved by providing independent control of both the wheel angular speed and the wheel horizontal speed. Planetary rovers typically operate at very low speeds ($<$ 0.1 m/s), and hence most existing single wheel test rigs are designed to operate at such speeds as seen in Table \ref{tab:existing-test-rigs}. Figure \ref{fig:slip-ratio-chart} shows the required wheel angular speed as a function of the wheel horizontal speed for a range of slip ratios. Ideally, the test rig should be capable of accommodating the entire theoretical range of slip ratios for any given horizontal speed. However, as seen in Figure \ref{fig:slip-ratio-chart}, this is not realizable as the required angular velocity increases sharply as the slip ratio approaches 1.0. The selected operating range for $\omega$ and $v_x$ are shown in green in Fig. \ref{fig:slip-ratio-chart} which allows slip ratios as high as 0.8 for a nominal horizontal speed of 0.1 m/s. The upper limit for $v_x$ of 0.2 m/s is an arbitrary design requirement based on the expected speed of a future planetary rover, and to achieve negative slip values with reasonably large $\omega$ ($> 0.2$ rad/s) as shown in Fig. \ref{fig:slip-ratio-chart}. 
 
 
 \begin{figure}[hbt!]
@@ -177,9 +180,9 @@ where $r$ is the wheel radius, $\omega$ is the wheel angular speed, and $v_x$ is
 \label{fig:slip-ratio-chart}
 \end{figure}
 
-The vertical load on the wheel $F_v$ is another important test parameter, and must be controlled to simulate the wheel-soil interaction on planetary surfaces with different values of surface gravity. The prototype test wheel is intended to be used on a 4-wheel rover weighing approximately 800 kg which will be delivered to Europa's surface using an MSL-derived skycrane descent system. Taking into account Europa's surface gravity of 1.32 m/s\textsuperscript{2}, this results in a vertical load of 264 N. The corresponding loads on Mars, Titan and Enceladus are 270 N and 22 N respectively. If the vehicle is moving up or down a slope, the local vertical component of the force will be smaller as defined by the slope angle.  Considering these loads, the requirement for the vertical load on the wheel is in the range of 20--400 N. The nominal  load accuracy requirement is arbitrarily set to 1\% of the desired value, though this may not be practical at very low vertical loads. 
+The vertical load on the wheel $F_v$ is another important test parameter, and must be controlled to simulate the wheel-soil interaction on planetary surfaces with different values of surface gravity. The prototype test wheel is intended to be used on a 4-wheel rover weighing approximately 800 kg which will be delivered to Europa's surface using an MSL-derived skycrane descent system. Taking into account Europa's surface gravity of 1.32 m/s\textsuperscript{2}, this results in a vertical load of 264 N for each wheel. The corresponding loads on Mars, Titan and Enceladus are 744 N, 270 N and 22 N respectively. If the vehicle is moving up or down a slope, the local vertical component of the force will be smaller as defined by the slope angle.  Considering these loads, the requirement for the vertical load on the wheel is in the range of 20--400 N. The nominal  load accuracy requirement is arbitrarily set to 1\% of the desired value, though this may not be practical at very low vertical loads (i.e., $<<$ 20 N). 
 
-The requirements for slip angle $\alpha$ and camber angle $\beta$ (as illustrated in Fig. \ref{fig:slip-camber-schmatic}) are both arbitrarily defined as $\pm$25 degrees, which is a nominal upper bound for the range of these angles expected for planetary rovers. The test bed is to be able to accommodate the prototype 25 cm wide wheel in the slip and camber angle geometries, and is required to be at least 70 cm wide and 30 cm deep. The test bed is required to be able to be simulate a wide range of conditions which may be expected on icy moons such as Europa. Figure \ref{fig:icy-moon-photos-and-earth-analogs} shows some of the highest resolution photographs of Europa and Enceladus from the Galileo and Cassini-Huygens spacecraft. As a starting point the test bed is required to able to accommodate granular ice simulant, boulder fields, sharp ice formations and also provide a flat hard surface resembling smooth ice. Laboratory studies using both observational data from spacecraft and telescopes, experimental studies of water ice under cryogenic and  vacuum conditions are currently underway. Analog sites such as the ones shown in Fig. \ref{fig:earth-analog-sites} may offer some insight into the conditions on these icy worlds, though ice is known to behave very differently under cryogenic conditions than that encountered on Earth.  As more data becomes available, other test bed simulants and surface features may be used to provide more realistic representation of the icy moon surfaces. 
+The requirements for slip angle $\alpha$ and camber angle $\beta$ (as illustrated in Fig. \ref{fig:slip-camber-schmatic}) are both arbitrarily defined at $\pm$25 degrees, which is a nominal upper bound for the range of these angles expected for planetary rovers. The test bed needs to accommodate the prototype 25-cm wide wheel in the slip and camber angle geometries, and is required to be at least 70 cm wide and 30 cm deep. The test bed is required to be able to be simulate a wide range of conditions which may be expected on icy moons such as Europa. Figure \ref{fig:icy-moon-photos-and-earth-analogs} shows some of the highest resolution photographs of Europa and Enceladus from the Galileo and Cassini-Huygens spacecraft. As a starting point the test bed is required to able to accommodate granular ice simulant, boulder fields, sharp ice formations and also provide a flat hard surface resembling smooth ice. Laboratory studies using both observational data from spacecraft and telescopes, experimental studies of water ice under cryogenic and  vacuum conditions are currently underway. Analog sites such as the ones shown in Fig. \ref{fig:earth-analog-sites} may offer some insight into the conditions on these icy worlds, though ice is known to behave very differently under cryogenic conditions than that encountered on Earth.  As more data becomes available, other test bed simulants and surface features may be used to provide more realistic representation of the icy moon surfaces. 
 
 \begin{figure}[hbt!]
 \centering
@@ -214,7 +217,7 @@ The most important measurements of interest are the forces and moments on the wh
 
 \subsection{Mechanical System Design}
 
-The test rig mechanical system consists of the following subsystems as shown in Figure \ref{fig:overall-system-view}: main structure, horizontal motion control, vertical motion and load control, slip and camber angle control, wheel drive, and simulant bed. Details of the various mechanical subsystems and their construction are given below.
+The test rig mechanical system consists of the following subsystems as shown in Figure \ref{fig:overall-system-view}: main structure, horizontal motion control, vertical motion and load control, slip and camber angle control, wheel drive, and simulant bed. Details of the each mechanical subsystems and their construction are given below.
 
 \begin{figure}[hbt!]
 \centering
@@ -228,7 +231,7 @@ The test rig mechanical system consists of the following subsystems as shown in 
 \subsubsection{Main Structure and Horizontal Motion Control}
 \label{subsubsec:main-structure}
 
-The main structure is made of standard aluminum extrusions and is 6 meters long, 2 meters wide, and 2 meters high as shown in Figure \ref{fig:carriage}(a). Th Horizontal motion control is achieved using a carriage which is supported on wheels as shown in Figure \ref{fig:carriage}(b). The carriage supports the various subsystems below including the vertical load control and the wheel drive mechanism, all of which move along with the carriage. The carriage is driven using a pulley and timing belt, which is connected to a motor as seen in Figure \ref{fig:carriage}(c). The top of the frame serves as a guide rail for the carriage as it moves horizontally. By controlling the RPM of the drive motor, the horizontal traverse speed of the wheel can be set to the desired value.
+The main structure is made of standard slotted aluminum extrusions and is 6 meters long, 2 meters wide, and 2 meters high as shown in Figure \ref{fig:carriage}(a).  Horizontal motion control is achieved using a carriage supported on wheels as shown in Figure \ref{fig:carriage}(b). The carriage is the primary moving structure and supports the various subsystems below including the vertical load control and the wheel drive mechanism, all of which move along with the carriage. The carriage is driven using a pulley and timing belt, which is connected to a motor as seen in Figure \ref{fig:carriage}(c). The top of the frame serves as a guide rail for the carriage as it moves horizontally. By controlling the speed of the drive motor, the horizontal traverse speed of the wheel can be set to the desired value.
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=6.55in]{test-rig-images/carriage.pdf}
@@ -243,7 +246,7 @@ The main structure is made of standard aluminum extrusions and is 6 meters long,
 \subsubsection{Vertical Motion and Load Control}
 \label{subsubsec:vertical-motion-control}
 
-The main goal of the vertical motion and load control system is to set the desired vertical force on the wheel, to simulate its motion on reduced-gravity environments such as those encountered at Europa and Enceladus. The entire wheel assembly is supported on rollers as shown in Figure \ref{fig:load-control}(a, b), and can move in the vertical direction. The load control is achieved using a linear actuator and an extension spring. When the actuator is fully retracted, the spring has no extension and hence no upward force on the wheel. As the linear actuator arm is extended, it extends the spring and off loads a fraction of the weight of the wheel. The desired vertical load is set by controlling the length of the extension spring using the linear actuator, and measuring the vertical load on the wheel using the load cell as shown in Figure \ref{fig:load-control}(c).
+The main goal of the vertical motion and load control system is to control vertical force on the wheel, in particular to offload, to simulate its motion on reduced-gravity environments such as those encountered at Europa and Enceladus. The entire wheel assembly is supported on rollers as shown in Figure \ref{fig:load-control}(a, b), and can move in the vertical direction. The load control is achieved using a linear actuator and an extension spring. The linear actuator controls the tension on the spring hence changes the forces transmitted to the wheel by the system weight. The desired vertical load is set by a feedback-loop control of the length of the extension spring using the linear actuator. A single-axis load cell as shown in Figure \ref{fig:load-control}(c), will measure the vertical load on the wheel for the feedback loop.
 
 \begin{figure}[hbt!]
 \centering
@@ -257,10 +260,10 @@ The main goal of the vertical motion and load control system is to set the desir
 \subsubsection{Slip and Camber Angle Control}
 \label{subsubsec:slip-camber-control}
 
-The slip and camber angle control system allows setting a desired slip and caber angle at the beginning of a test. The range of achievable angles is $\pm 30^\circ$ for both slip and camber. Slip and camber control is achieved using a linear actuator and a gear motor as shown in Figure \ref{fig:load-control}(a). The slip mechanism consists of a linear actuator that applies moment about a hinge attached to a vertical rod. The actuator extends out to rotate the wheel counter-clockwise about the vertical axis (Z-axis) as shown in Figure \ref{fig:load-control}(a). %This slip angle control mechanism was selected after trade-off with a motor-gear system that converts rotational motion about a horizontal axis to a vertical axis. The selected mechanism reduces the load on the actuator and puts the load on the hinge, which does not require power. A rotary sensor attached to the hinge measures the slip angle about the axis of rotation.
-The camber mechanism consists of a servo motor-gear system that can move the wheel-motor assembly about the axis of traverse axis (X-axis). %The camber motor can hold a position and th when powered. 
+The slip and camber angle control system allows setting desired slip and camber angles at the beginning of a test. The range of achievable angles is roughly $\pm 30^\circ$ for both slip and camber. Slip and camber control is achieved using a linear actuator and a gear motor as shown in Figure \ref{fig:load-control}(a). The slip mechanism consists of a linear actuator that changes the angular position (i.e., slip angle) of the wheel-motor assembly arm.  The actuator extends out to rotate the wheel counter-clockwise about the vertical axis (Z-axis) as shown in Figure \ref{fig:load-control}(a). %This slip angle control mechanism was selected after trade-off with a motor-gear system that converts rotational motion about a horizontal axis to a vertical axis. The selected mechanism reduces the load on the actuator and puts the load on the hinge, which does not require power. A rotary sensor attached to the hinge measures the slip angle about the axis of rotation.
+The camber mechanism consists of a servo motor-gear system that can move the wheel-motor assembly about the traverse axis (X-axis). %The camber motor can hold a position and th when powered. 
 An inclinometer attached to the wheel-motor assembly rod measures the camber angle. %Figure \ref{fig:slipcamber} shows CAD design of the slip and camber mechanism with the corresponding axis of rotation. Figure \ref{fig:slipcamberassembled} shows the fully assembled slip and camber mechanism.
-Figure \ref{fig:wheel-drive}(c,d) illustrates the slip and camber angle control systems in use during tests.
+Figure \ref{fig:wheel-drive}(c,d) illustrates the slip and camber angle control systems in use during tests. The current systems only allow static slip and camber angle testing, since testing with dynamic slip and camber angle requires a constant contact patch between the wheel and surface which are more complicated to implement and will require more degrees-of-freedom on the wheel motor assembly.
 
 %\begin{figure}[hbt!]
 %\centering
@@ -279,7 +282,7 @@ Figure \ref{fig:wheel-drive}(c,d) illustrates the slip and camber angle control 
 
 \subsubsection{Wheel Drive}
 
-The test wheel is driven using a Maxon RE 50, 200 Wattmotor as shown in Figure \ref{fig:wheel-drive}(a). A six-axis Omega 160 FT sensor is mounted between the test wheel and the mounting adapter plate to obtain force and torque measurements. Figure \ref{fig:wheel-drive}(b) shows the assembled wheel motor drive on the simulant test bed with zero slip and zero camber angle. Figure \ref{fig:wheel-drive}(c) shows the wheel at a non-zero slip angle and zero camber angle during a test. Figure \ref{fig:wheel-drive}(d) shows the wheel at zero slip angle and a non-zero camber angle prior to a test.
+The test wheel is driven using a DC motor as shown in Figure \ref{fig:wheel-drive}(a). A six-axis FT sensor is mounted between the test wheel and the mounting adapter plate to measure the reaction force and torque. Figure \ref{fig:wheel-drive}(b) shows the assembled wheel motor drive on the simulant test bed with zero slip and zero camber angle. Figure \ref{fig:wheel-drive}(c) shows the wheel at a non-zero slip angle and zero camber angle during a test. Figure \ref{fig:wheel-drive}(d) shows the wheel at zero slip angle and a non-zero camber angle prior to a test.
 \label{subsubsec:wheel-drive}
 \begin{figure}[hbt!]
 \centering
@@ -302,33 +305,92 @@ The simulant test bed is designed to accommodate a wide range of surface conditi
 
 \subsection{Electrical and Control System Design}
 
-The electrical components, including wheel motor, slip and camber actuators and the sensors are attached to the moving carriage frame. Thus majority of the electrical sub-system moves back and forth across a ~5 meter long track. All the cables from instruments on the carriage are routed through an energy chain system that allows a guided motion of the cables. The motors are controlled through individual motor controllers that receive command from the computer. The sensors send the signal to the computer through the NI-DAQ input/output device. All instruments are powered through two DC power supplies. Figure \ref{fig:electrical-diagram} shows the schematics of the electrical sub-system. Figure \ref{fig:electrical-components} shows the motor controller and sensor data acquisition setup in the lab. Figure \ref{fig:energychain} shows the energy chain that is used to route the wires from the carriage to the table.  
+The electrical components, including wheel motor, slip and camber actuators and the sensors are attached to the moving carriage frame. Thus majority of the electrical sub-system moves back and forth across a 5 meter long track. All the cables from instruments on the carriage are routed through an energy chain system that allows a guided motion of the cables. The motors are controlled through individual motor controllers that receive command from the computer. The sensors send the signal to the computer through the National Instrument data acquisition input/output device. All instruments are powered through two DC power supplies. Figure \ref{fig:electrical-diagram} shows the schematics of the electrical subsystem. 
+
+%Figure \ref{fig:electrical-components} shows the motor controller and sensor data acquisition setup in the lab. Figure \ref{fig:energychain} shows the energy chain that is used to route the wires from the carriage to the table.  
+
+%%%%%%%%%%%%%Sensor&Actuator 11/29
+
+The test rig has a number of sensors that ensure the proper operation under the desired testing condition. All sensors and actuators are selected for the initial setup of the test rig. Based on the specific applications, most of the sensors and actuators can be changed easily with different specifications. 
+
+
+\subsubsection{Actuators}
+
+The test rig uses a total of five actuators: three motors for horizontal carriage motion, wheel driver, and camber mechanism, and two linear actuators for vertical load control and slip mechanism. The carriage motor and wheel motor combined provides full control over the wheel motion and both are the Maxon RE 50 DC motors rated at 200 W. The carriage motor is paired with Maxon reduction gear GP 52 C with reduction ratio of 126:1, and the wheel motor is paired with Maxon GP 62 A with a reduction ratio of 236 : 1 to provide the necessary torque and speed. The camber motor requires a high torque to stabilize the long drive arm, and a high torque stepper motor from Anaheim Automation is used with 100:1 gear to provide a precise control over the camber angle. Both linear actuators are from Progressive Automation. The linear actuator for the load control is the model PA-04 capable of a maximum stroke length of 1 m and a maximum dynamic and static load of 1800 N. For slip angle control, we used the model PA-14 with maximum dynamic and static forces of 680 N and 1560 N respectively with a stroke length of 0.2 m. 
+
+\subsubsection{Sensors}
+
+Six-axis force and torque sensor is a key component of the test rig which directly measures the three-axis forces and torques from the wheel. Given the large wheel diameter, the selected FT sensor is the ATI Omega-160 (DAQ version) with maximum measurable single axis force of 6250 N and 2500 N along axial and longitudinal directions respectively, and maximum measurable single axis torque of 400 N-m in all axes. Single-axis load cell is used to achieve active load control. Considering the weight of the drive, vertical motion, and camber and slip structures, the load cell is the FUTEK LCF450 that measures up to 1300 N. 
+
+Two draw-wire sensors measures the horizontal carriage displacement and vertical wheel displacement. The horizontal system uses the Micro-Epsilon WDS-P115 sensor with measuring range of 7.5 m to provide the full range measurement. The vertical system uses the Micro-Epsilon WPS-MK88 model with a measuring range of 2.3 m, which serves as a redundant unit for load control (in addition to the single axis-load cell) since the primary load offset is achieved with a linear tension spring. The vertical draw-wire sensor can also provide measurement of the wheel vertical motion  that can then be to used to characterize the tire motion and deformation over over different surface features. 
+
+The slip  angles is measured using a rotary encoder (model ERCF 1) from P3 America and the camber angle is measured using an inclinometer from TTI Americas. The slip  angle is a  relative measurement therefore it needs to be calibrated using flatbed surface before the test. Each drive motor comes with an integrated encoder that measures the rotational speed of the motor. 
+
+\subsection{Software Interface}
+
+The force and torque sensor and the National Instrument data acquisition input/output device (which interfaces all of the other sensors and actuators) are directly wired to the desktop machine and the test rig operator interfaces with these systems using the Laboratory Virtual Instrument Engineering Workbench (LabVIEW) software package.
+
+The force and torque sensor comes pre-packaged with a LabVIEW program to obtain the raw voltage inputs and convert them into the desired forces and torques, using a manufacture-provided calibration matrix. This program comes with the built-in functionality to record data at a desired sample rate that is output to a simple CSV file. This software program is shown in Fig. \ref{fig:FT-screenshot} and is used as the basis for all data collection for the test rig.
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=0.8\textwidth]{plots/electrical_components_diagram.PNG}
+\includegraphics[width=1.0\textwidth]{general-images/FT_screenshot.png}
+\caption{Pre-packaged LabVIEW program for the force and torque sensor.}
+\label{fig:FT-screenshot}
+\end{figure}
+
+This base program is further enhanced to facilitate the simultaneous recording of all other sensor data from the data acquisition system during the primary data collection from the force and torque sensor. The enhanced program allows the operator to view both the raw and calibrated data (if available) from all sensors connected to the primary data acquisition system in addition to the force and torque data, and when data collection starts all of the sensor data is recorded, as shown in Fig. \ref{fig:sensor-screenshot}. 
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1.0\textwidth]{general-images/sensor_screenshot.png}
+\caption{Enhanced program that allows for the viewing and recording of all data acquisition sensor data in addition to the force and torque data.}
+\label{fig:sensor-screenshot}
+\end{figure}
+
+In addition to the data collection program, several other LabVIEW programs are used to control the different actuators and motors, as shown in Fig. \ref{fig:controls-screenshot}.
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1.0\textwidth]{general-images/controls_screenshot.png}
+\caption{LabVIEW programs to allow the operator to control the different actuators and motors that make up the test rig.}
+\label{fig:controls-screenshot}
+\end{figure}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%Sensor&Actuator 11/29-Ye
+
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.9\textwidth]{plots/electrical_components_diagram.PNG}
 \caption{Block diagram of electrical subsystem. Green - sensors. Yellow - actuators.}
 \label{fig:electrical-diagram}
 \end{figure}
 
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=0.8\textwidth]{general-images/electrical.png}
-\caption{Electrical components for motor control and sensor data acquisition.}
-\label{fig:electrical-components}
-\end{figure}
+%\begin{figure}[hbt!]
+%\centering
+%\includegraphics[width=0.8\textwidth]{general-images/electrical.png}
+%\caption{Electrical components for motor control and sensor data acquisition.}
+%\label{fig:electrical-components}
+%\end{figure}
 
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=1\textwidth]{general-images/wiring.png}
-\caption{Energy chain routing the wires from the moving carriage to the electrical components on the table.}
-\label{fig:energychain}
-\end{figure}
+%\begin{figure}[hbt!]
+%\centering
+%\includegraphics[width=1\textwidth]{general-images/wiring.png}
+%\caption{Energy chain routing the wires from the moving %carriage to the electrical components on the table.}
+%\label{fig:energychain}
+%\end{figure}
 
 
 \section{Prototype Wheel Fabrication}
 \label{sec:tire-prototyoe-fabrication}
-Innovation in wheel and tire design for the mobility system has been critical over the years to adapt to the surface features as we learn more about them through previous missions. Figure \ref{soa_wheels} shows the state of the art in planetary rovers that have matured TRL. The MSL tires are made from whole blocks of aluminium and are 50 centimeters in diameter and 40 centimeters wide \cite{haggart2008mobility}. The tires endured significant damage under stress levels due to sharp rocks that they were not tested for \cite{toupet2018traction}. The design was modified for the Mars 2020 rover, with slightly larger diameter, smaller width, and increased thickness to improve robustness. The number of treads on the rim are doubled and have a sinusoidal curve over the W-shaped pattern of MSL tires \cite{inotsume2019parametric}. These rigid tires will not be effective for jagged features of ocean worlds. We need conformable tires to traverse the rough terrain of the scientifically interesting sites on the icy moons.
+ Figure \ref{soa_wheels} shows the state-of-the-art in planetary rovers that are currently operational on the Martian surface. The MSL tires are machined from solid blocks of aluminium and are 50 centimeters in diameter and 40 centimeters wide \cite{haggart2008mobility}. The tires sustained damage under stress levels due to ventifacts (sharp wind-eroded rock formations cemented into the ground) that were not expected and hence were not tested for \cite{toupet2018traction}. The design was modified for the Mars 2020 rover, with slightly larger diameter, smaller width, and increased thickness to improve robustness. The number of treads on the rim are doubled and have a sinusoidal curve over the W-shaped pattern of MSL tires \cite{inotsume2019parametric}. Rovers sent to Ocean Worlds such as Europa may encounter much more jagged terrain and sharp ice and rock formations. In contrast to the conventional rigid metal wheel used on Mars rovers, we propose a novel flexible tire concept which is more suited for such extreme terrain mobility.
 
 \begin{figure}[hbt!]
     \centering
@@ -337,19 +399,28 @@ Innovation in wheel and tire design for the mobility system has been critical ov
     \label{soa_wheels}
 \end{figure}
 
-NASA Glenn has designed and developed spring metal tires for exploration rovers on Moon and Mars. Figure \ref{soa_wheels} (c) shows the spring metal tire made from nickel titanium, a shape memory alloy (SMA). It provides better traction in sand, more durability, conformity and is lighter \cite{padula2018shape}. Scalability and stowage of large diameter tires would be challenging with the SMA tires. 
+NASA Glenn Research Center has been developing nickel titanium shape memory alloy (SMA) tires for exploration rovers on Moon and Mars which would conform to irregular surfaces without sustaining damage (Figure \ref{soa_wheels} (c)). 
 
 \subsection{Wheel requirements}
-The rugged terrain, variety in surface features, cold environment and reachability leads to following requirements from the tire that are addressed in the design:
+The rugged terrain, variety in surface features, cold environment leads to following requirements from the tire that are addressed in the design of the novel tire concept for Ocean Worlds:
 \begin{itemize}
-    \item Large diameter: The size of obstacles that a rover can surmount is predominantly proportional to the vehicle's wheel diameter. In the rugged terrain of the icy moons, big boulders and tall penitents can be found. To overcome these obstacles, large diameter wheels are required.
-    \item Expandable: Large wheels are logically prone to occupying a correspondingly large volume in the mission’s launch vehicle payload fairing. Having compactly stowable, collapsible-expandable wheels is a crucially beneficial attribute for meeting the launch and lander volume constraints of a highly ambitious mission.
-    \item Conformable: Tire conformability with surface irregularities distributes vehicle loads on tire surfaces. Distributed loading implies increased surface contact area and greater uniformity of friction between substrate and tire, thereby improving traction and reducing tire slippage trauma.     
-    \item Scalable: A scalable design supports predictive modelling and behavioral analysis of larger wheels by testing lower cost, rapid iterations of sub-scale developmental units.
-    \item Stowable: The ocean world rover will be large and will need to be stowed in the lander structure, which could be a sky crane similar to the one used for landing MSL rover on Mars surface. The tires should be compactly stowable for practical accommodation. 
-    \item Wear- and puncture-resistant: As we saw with MSL, the tires will very likely encounter potentially traumatic conditions that were not anticipated nor were tested for—given that we don’t know as much about the surface of the Ocean Worlds as we do about Mars. This presents a need for an enlarged spectrum of robustness attributes focusing on extreme wear- and puncture-resistance.
-    \item Radiation resistant: The radiation levels on the surface of Europa are high due to Jupiter’s magnetic field. The wheels must survive in this environment for the requisite mission duration. 
-    \item Traction for variety of surfaces and steep inclines: Wheel and tire design must anticipate—and address—the immense variability and scale of terrain features that will be encountered in the scientifically interesting sites on the Icy Moons.  
+    \item \textbf{Large diameter}: The size of obstacles that a rover can surmount is primarily a function of suspension system and the wheel diameter. The rocker-bogie design used by the Mars rovers allows the rover to go over obstacles that are upto about twice the wheel diameter. However, the rocker-bogie suspension system is mechanically complex, limits the traverse speed, and presents challenges in extremely cold environments where the actuators must be kept warm and lubricated. This study proposes to use a mechanically simpler four-wheel drive vehicle such as that used by the Lunar Roving Vehicle where all moving parts can be housed inside the main chassis, and hence avoid problems with lubrication in extremely cold environments. However, such vehicles can only overcome obstacles that are about half the diameter of the wheels. To make up for this limitation of the four-wheel design, it is proposed to use large diameter wheels ($>$ 1 meter) to overcome obstacles up to 0.5m. 
+    \item \textbf{Deployable}: Large diameter wheels present inherent difficulty for packaging onboard the delivery spacecraft, aeroshell, and launch vehicle fairing. The proposed wheel design will be stowed in a compact configuration during launch and cruise, and will be deployed to its final configuration just before touchdown during the sky crane maneuver.
+    
+    \item \textbf{Conformable}: Compared to rigid tires used on the Mars rovers, the proposed tire will conform to the surface features. This allows greater contact surface area and better traction on irregular surfaces, and reduce the risk of wheel damage from sharp obstacles.     
+    
+    %\item Scalable: A scalable design supports predictive modelling and behavioral analysis of larger wheels by testing lower cost, rapid iterations of sub-scale developmental units.
+    
+    \item \textbf{Scalable}: The design should allow scaling and performance prediction for potentially larger diameter deployable tires ($>$ 5m) which may be required depending on the conditions at the landing site.
+    
+    %\item Stowable: The ocean world rover will be large %and will need to be stowed in the lander structure, %which could be a sky crane similar to the one used %for landing MSL rover on Mars surface. The tires 5should be compactly stowable for practical %accommodation. 
+    
+    \item \textbf{Wear resistant}: The wheel must be made of materials that are wear resistant under a range of sharp surface features, under extremely cold temperatures, and must be resistant to high levels of radiation from energetic charged particles on Europa' surface.
+    
+    %\item Radiation resistant: The radiation levels on the surface of Europa are high due to Jupiter’s magnetic field. The wheels must survive in this environment for the requisite mission duration. 
+    \item \textbf{Traction}: The wheel must allow accommodation of the features on the exterior (such as grousers) to allow sufficient traction  for variety of surfaces, obstacles and inclines.
+    
+    
     
 \end{itemize}
 
@@ -363,7 +434,7 @@ The intent in design of the test tire is two-fold:
 \end{enumerate}
 
 \subsubsection{Design Concept}
-The test wheel developed by Thin red Line Aerospace (TRLA) is based on a cutting-edge fabric structure called Ultra High Performance Vessel (UHPV). UHPV was developed by TRLA to address NASA’s problem with performance predictability in inflatable structures. TRLA has participated in numerous NASA programs developing mission applications of its patented fabric architecture and validating the predictable scalable performance of its unique structures [References to reports].
+The test wheel developed by Thin red Line Aerospace (TRLA) is based on a cutting-edge fabric structure called Ultra High Performance Vessel (UHPV). UHPV was developed by TRLA to address NASA’s problem with performance predictability in inflatable structures. TRLA has participated in numerous NASA programs developing mission applications of its patented fabric architecture and validating the predictable scalable performance of its unique structures \cite{maxim2010a,maxim2010b,maxim2010c}.
 
 \textbf{Ocean Worlds Application}
 \newline
@@ -396,7 +467,7 @@ In the prototype wheel, the geometry defined in the conceptual design is created
         \centering
         \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_design_complete.jpg}}
     \end{minipage}
-    \caption{Design rendering of the prototype wheel. (a) Spheroids inside an exterior cover form the tire portion of the wheel and are mounted on a circular metallic ring which is, in turn, connected to the central wheel hub with an array of braided fiber “spokes”. (b) Axial view of the tire interior. (c) Tire with the exterior cover. (Thin Red Line Aerospace Proprietary information)}
+    \caption{Design rendering of the prototype wheel. (a) Spheroids inside an exterior cover form the tire portion of the wheel and are mounted on a circular metallic ring which is, in turn, connected to the central wheel hub with an array of braided fiber “spokes”. (b) Axial view of the tire interior. (c) Tire with the exterior cover.}
     \label{tire_design}
 \end{figure}
 
@@ -413,13 +484,13 @@ The fabricated prototype wheel is shown in Figure \ref{tire_prototype}. There ar
         \centering
         \subfloat[]{\includegraphics[width=1\textwidth]{general-images/tire_prototype_complete.jpg}}
     \end{minipage}
-    \caption{Fabricated prototype wheel. (a) 8 inflated UHPV spheroids on a black metallic rim and tensioned, braided fiber "spokes". (b) Exterior cover installed over the 8 UHPV inflatable segments. (Thin Red Line Aerospace Proprietary information)}
+    \caption{Fabricated prototype wheel. (a) 8 inflated UHPV spheroids on a black metallic rim and tensioned, braided fiber "spokes". (b) Exterior cover installed over the 8 UHPV inflatable segments.}
     \label{tire_prototype}
 \end{figure}
 
 \subsection{Integration with Test Rig}
 
-The tire is mounted on the test rig by attaching the wheel hub to the axle of wheel motor on the rig. Figure \ref{tire_on_rig} shows the mounted tire. A shaft collar is attached to the end of the wheel motor axle. The shaft collar is fitted an adapter to the force and torque sensor, whose other end is attached to another adapter on which the wheel hub is mounted. The adapter between sensor and wheel hub can be modified to mount different wheels. The tire can roll in the surface simulant box along the length of the test rig and be tilted to have non-zero slip and camber angles. 
+The tire is mounted on the test rig by attaching the wheel hub to the axle of wheel motor on the rig. Figure \ref{tire_on_rig} shows the mounted tire. A shaft collar is attached to the end of the wheel motor axle. The shaft collar is fitted an adapter to the force and torque sensor, whose other end is attached to another adapter on which the wheel hub is mounted. The adapter between sensor and wheel hub can be modified to mount different wheels. The tire can roll in the surface simulant box along the length of the test rig. The entire wheel drive axle can be tilted along two axes to achieve non-zero slip and camber angles. 
 
 \begin{figure}[hbt!]
     \centering
@@ -442,11 +513,11 @@ The tire is mounted on the test rig by attaching the wheel hub to the axle of wh
 \section{Experimental Setup and Procedure}
 
 
-\section{Verification and Validation}
+%\section{Verification and Validation}
 
 \subsection{Validation Testing at Smithers}
 
-Validation testing is done at the Smithers  plant in Ravenna, Ohio. The purpose was to perform force and moment testing on a wheel under varying conditions. These tests would be replicated at the Purdue facility to validate the test rig results. 
+We conducted validation testing at the Smithers  plant in Ravenna, Ohio to perform force and moment testing on a wheel under varying conditions. These tests were then replicated at the Purdue facility to validate the test rig results. Due to the  delicacy of the prototype type and the limitation of the Smithers testing capability, a different test article is used for the validation test. 
 
 \textbf{Test article:} Dunlop 3402 motorcycle tire with rim size of $16\times3$ inch. Rated load is about 400 kg. 
 
@@ -515,9 +586,9 @@ Camber (deg) & Slip (deg) & FX (kg) & FY (kg) & FZ (kg) & RL (mm) & MX (N-m) & M
 \label{fig:purdue-validation-test}
 \end{figure}
 
-\section{Sample Test Results with Prototype Tire}
+\subsection{Sample Test Results with Prototype Tire}
 
-\subsection{Data Analysis}
+%\subsection{Data Analysis}
 Data analysis process comprise of smoothing and fitting of the sensor data. Figure \ref{fig:data-processing-algorithm} shows an overview of the data processing algorithm. The sensor data along with parameters of a single test are recorded in a file. The input parameters for a test include: load, slip ratio, side slip and camber angles. The data corresponding to the FT sensor, load cell, vertical and horizontal draw wire sensor, inclinometer, and rotary sensor are extracted. 
 
 \begin{figure}[hbt!]
